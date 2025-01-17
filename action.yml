@@ -1,0 +1,16 @@
+name: 'decrypt laravel env file'
+description: 'decrypt laravel env variable to deploy project'
+inputs:
+  environment:
+    description: 'environment file to decrypt'
+    required: false
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+  env:
+    - KEY: ${{ secrets.KEY }}
+    - ENVIRONMENT: ${{ inputs.environment }}
